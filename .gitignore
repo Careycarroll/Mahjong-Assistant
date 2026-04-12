@@ -1,0 +1,12 @@
+# Card data — copyrighted NMJL material, never commit
+cards/
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+*.swp
+
+# Audit files
+audit.txt
