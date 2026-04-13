@@ -1,0 +1,150 @@
+/* =============================================================
+   TILES.CSS
+   Tile display styles for both 'tiles' and 'text' display modes.
+   Covers tile palette, hand display, and individual tile rendering.
+   References tokens from base.css — do not hardcode values.
+   ============================================================= */
+
+/* ── TILE BASE ──────────────────────────────────────────────── */
+.tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--tap-min);
+  min-height: var(--tap-min);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-elevated);
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color var(--transition-fast),
+              border-color var(--transition-fast),
+              transform var(--transition-fast);
+}
+
+.tile:hover {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.tile.selected {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px var(--color-accent-hover);
+}
+
+.tile.dead {
+  opacity: 0.35;
+  cursor: default;
+  pointer-events: none;
+}
+
+.tile.joker {
+  background-color: var(--color-bg-elevated);
+  border-color: var(--color-warning);
+  color: var(--color-warning);
+}
+
+/* ── SUIT COLORS ────────────────────────────────────────────── */
+.tile[data-suit="bamboo"] { color: var(--color-success);     }
+.tile[data-suit="crak"]   { color: var(--color-danger);      }
+.tile[data-suit="dot"]    { color: var(--color-suit-dot);    }
+.tile[data-suit="wind"]   { color: var(--color-text);        }
+.tile[data-suit="dragon"] { color: var(--color-accent);      }
+.tile[data-suit="flower"] { color: var(--color-suit-flower); }
+.tile[data-suit="joker"]  { color: var(--color-warning);     }
+
+/* ── TILE PALETTE ───────────────────────────────────────────── */
+.tile-palette {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.palette-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.palette-row-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-xs);
+}
+
+/* ── HAND DISPLAY ───────────────────────────────────────────── */
+.hand-display {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  min-height: var(--tap-min);
+  padding: var(--space-sm);
+  background-color: var(--color-bg);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.hand-display. tile {
+  position: relative;
+}
+
+.hand-display .tile .remove-btn {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--color-danger);
+  color: var(--color-text-inverse);
+  font-size: 10px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.hand-display .tile:hover .remove-btn {
+  display: flex;
+}
+
+/* ── TILE COUNT BADGE ───────────────────────────────────────── */
+.tile-count {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  padding: var(--space-xs) var(--space-sm);
+}
+
+/* ── TEXT MODE ──────────────────────────────────────────────── */
+.display-mode-text .tile {
+  min-width: unset;
+  min-height: unset;
+  padding: var(--space-xs) var(--space-sm);
+  font-size: var(--font-size-sm);
+  border-radius: var(--radius-sm);
+}
+
+/* ── EXPOSED MELDS ──────────────────────────────────────────── */
+.meld {
+  display: inline-flex;
+  gap: var(--space-xxs);
+  padding: var(--space-xs);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.meld-type-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
