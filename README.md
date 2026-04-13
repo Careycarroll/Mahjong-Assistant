@@ -6,6 +6,12 @@ Works on laptop and phone. Installable to home screen. Offline capable.
 
 ---
 
+## Live App
+
+[https://careycarroll.github.io/Mahjong-Assistant/](https://careycarroll.github.io/Mahjong-Assistant/)
+
+---
+
 ## Features
 
 - **Hand tracking** — input and display your 13/14 tile hand
