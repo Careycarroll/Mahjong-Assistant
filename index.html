@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1a1a2e" />
+    <meta
+      name="description"
+      content="American Mahjong assistant — hand tracking, odds, and discard recommendations."
+    />
+
+    <title>Mahjong Assistant</title>
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="icons/icon-192.png" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/tiles.css" />
+    <link rel="stylesheet" href="css/app.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- Screen: Settings -->
+      <div id="screen-settings" class="screen active">
+        <header class="app-header">
+          <h1>🀄 Mahjong Assistant</h1>
+        </header>
+        <main class="settings-form">
+          <div class="setting-group">
+            <label>Players</label>
+            <div class="btn-group" id="setting-players">
+              <button class="btn-option active" data-value="2">2</button>
+              <button class="btn-option" data-value="3">3</button>
+              <button class="btn-option" data-value="4">4</button>
+            </div>
+          </div>
+
+          <div class="setting-group">
+            <label>Charleston</label>
+            <div class="btn-group" id="setting-charleston">
+              <button class="btn-option active" data-value="false">Off</button>
+              <button class="btn-option" data-value="true">On</button>
+            </div>
+          </div>
+
+          <div class="setting-group">
+            <label>Track Opponents</label>
+            <div class="btn-group" id="setting-track-opponents">
+              <button class="btn-option" data-value="false">Off</button>
+              <button class="btn-option active" data-value="true">On</button>
+            </div>
+          </div>
+
+          <div class="setting-group">
+            <label>Card Year</label>
+            <div class="btn-group" id="setting-card-year">
+              <button class="btn-option active" data-value="2025">2025</button>
+              <button class="btn-option" data-value="2026">2026</button>
+            </div>
+          </div>
+
+          <div class="setting-group">
+            <label>Display</label>
+            <div class="btn-group" id="setting-display-mode">
+              <button class="btn-option active" data-value="tiles">
+                Tiles
+              </button>
+              <button class="btn-option" data-value="text">Text</button>
+            </div>
+          </div>
+
+          <button id="btn-start-game" class="btn-primary">Start Game</button>
+        </main>
+      </div>
+
+      <!-- Screen: Game -->
+      <div id="screen-game" class="screen">
+        <header class="app-header">
+          <h1>🀄 Mahjong Assistant</h1>
+          <button id="btn-settings" class="btn-icon">⚙️</button>
+        </header>
+        <main class="game-layout">
+          <section id="panel-hand" class="panel"></section>
+          <section id="panel-dead-tiles" class="panel"></section>
+          <section id="panel-results" class="panel"></section>
+        </main>
+      </div>
+    </div>
+    <!-- /#app -->
+
+    <!-- JS — load order matters -->
+    <script src="js/tiles.js"></script>
+    <script src="js/game-state.js"></script>
+    <script src="js/engine/matcher.js"></script>
+    <script src="js/engine/search.js"></script>
+    <script src="js/engine/odds.js"></script>
+    <script src="js/engine/advisor.js"></script>
+    <script src="js/ui/tile-input.js"></script>
+    <script src="js/ui/dead-tiles.js"></script>
+    <script src="js/ui/results.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- Service Worker -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("/service-worker.js")
+          .then((reg) => console.log("SW registered:", reg.scope))
+          .catch((err) => console.error("SW registration failed:", err));
+      }
+    </script>
+  </body>
+</html>
