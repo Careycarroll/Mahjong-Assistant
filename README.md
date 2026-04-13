@@ -52,7 +52,7 @@ mahjong-assistant/
 │   └── app.css             # Layout, screens, components
 │
 ├── js/
-│   ├── tiles.js            # Master tile dictionary (all 152 tiles)
+│   ├── tiles.js            # Master tile dictionary (156 tiles, 152 active per config)
 │   ├── app.js              # App init, screen routing, settings
 │   ├── game-state.js       # Hand, dead tiles, wall count, opponents
 │   ├── engine/
@@ -117,4 +117,15 @@ Configured at the start of each game:
 ### v1 — Core
 
 - [ ] Tile input UI and hand display
-- [ ] Settings screen |
+- [ ] Settings screen
+- [ ] Dead tile tracking
+- [ ] Hand analysis (matcher + BFS)
+- [ ] Win probability (Monte Carlo)
+- [ ] Discard recommendations
+
+### Future
+
+- [ ] LLM natural language advice
+- [ ] Opponent hand inference (Bayesian)
+- [ ] Reinforcement learning discard agent
+- [ ] 2026+ card support

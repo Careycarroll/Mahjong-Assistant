@@ -20,9 +20,10 @@
   font-weight: 600;
   cursor: pointer;
   user-select: none;
-  transition: background-color var(--transition-fast),
-              border-color var(--transition-fast),
-              transform var(--transition-fast);
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 .tile:hover {
@@ -50,13 +51,27 @@
 }
 
 /* ── SUIT COLORS ────────────────────────────────────────────── */
-.tile[data-suit="bamboo"] { color: var(--color-success);     }
-.tile[data-suit="crak"]   { color: var(--color-danger);      }
-.tile[data-suit="dot"]    { color: var(--color-suit-dot);    }
-.tile[data-suit="wind"]   { color: var(--color-text);        }
-.tile[data-suit="dragon"] { color: var(--color-accent);      }
-.tile[data-suit="flower"] { color: var(--color-suit-flower); }
-.tile[data-suit="joker"]  { color: var(--color-warning);     }
+.tile[data-suit="bamboo"] {
+  color: var(--color-success);
+}
+.tile[data-suit="crak"] {
+  color: var(--color-danger);
+}
+.tile[data-suit="dot"] {
+  color: var(--color-suit-dot);
+}
+.tile[data-suit="wind"] {
+  color: var(--color-text);
+}
+.tile[data-suit="dragon"] {
+  color: var(--color-accent);
+}
+.tile[data-suit="flower"] {
+  color: var(--color-suit-flower);
+}
+.tile[data-suit="joker"] {
+  color: var(--color-warning);
+}
 
 /* ── TILE PALETTE ───────────────────────────────────────────── */
 .tile-palette {
@@ -92,7 +107,7 @@
   border-radius: var(--radius-md);
 }
 
-.hand-display. tile {
+.hand-display .tile {
   position: relative;
 }
 
